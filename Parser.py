@@ -1,3 +1,5 @@
+
+
 import csv
 import sys
 rawData = []
@@ -26,7 +28,7 @@ with open('run.csv') as file_obj:
     rawCounter = 0
     #for rawconter in range(0,rawDataLen,1):
     original_stdout = sys.stdout # Save a reference to the original standard output
-    with open('Advertisement.txt', 'w') as g:
+    with open('Events.txt', 'w') as g:
     #     sys.stdout = f # Change the standard output to the file we created.
         while (rawCounter <= rawDataLen):
 
@@ -47,7 +49,7 @@ with open('run.csv') as file_obj:
             sys.stdout = g
             print (message)
             print("\n\r")
-            sys.stdout = original_stdout
+
 
             ScanReports.append(message)
             message.clear()
@@ -62,18 +64,22 @@ with open('run.csv') as file_obj:
 
 
 
+
 with open('rawDataLeft.txt', 'w') as f:
     sys.stdout = f # Change the standard output to the file we created.
     print(rawData)
     sys.stdout = original_stdout # Reset the standard output to its original value
 
 
+ScanReportsLen = len(ScanReports)
+print('Total Number of BLE Events %d' % ScanReportsLen)
+
     #print("Total raw Data left \n\r")
     #print(rawData)
     #print(ScanReports)
 
-    ScanReportsLen = len(ScanReports)
-    print('Total Number of correct Advertisements %d' % ScanReportsLen)
+
+
 
     #for Adv in range(ScanReportsLen):
     #    print(ScanReports[Adv])
