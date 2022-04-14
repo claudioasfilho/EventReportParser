@@ -38,10 +38,12 @@ with open('run.csv') as file_obj:
             EventLenght = int(rawData[HeaderofEventIndex+1],0)
             #print(EventLenght)
 
-            for i in range(HeaderofEventIndex, HeaderofEventIndex + EventLenght + 4, 1):
-                message.append(rawData[i])
-                rawData[i] = 0
-
+            try:
+                for i in range(HeaderofEventIndex, HeaderofEventIndex + EventLenght + 4, 1):
+                    message.append(rawData[i])
+                    rawData[i] = 0
+            except:
+                break
             sys.stdout = g
             print (message)
             print("\n\r")
